@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Le message secret</title>
+  <style>
+    body { min-height: 100vh; margin: 0; display: grid; place-items: center; background: #101827; color: #f3f4f6; font-family: system-ui, sans-serif; }
+    main { width: min(90vw, 36rem); padding: 2rem; text-align: center; border: 1px solid #475569; border-radius: 1rem; background: #1e293b; }
+    h1 { color: #facc15; }
+    #message { font-size: 1.25rem; line-height: 1.6; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>🗺️ Chasse au trésor</h1>
+    <p id="message">Le message est verrouillé. Il vous faut le bon indice dans l’adresse URL.</p>
+  </main>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('cle') === 'tresor') {
+      document.getElementById('message').textContent = 'Bravo, tu as trouvé le trésor ! Le message secret est : suis les étoiles jusqu’au vieux chêne.';
+    }
+  </script>
+</body>
+</html>
